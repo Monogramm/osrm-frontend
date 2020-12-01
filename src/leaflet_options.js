@@ -18,7 +18,7 @@ module.exports = {
     waypoints: [],
     language: 'en',
     alternative: 0,
-    layer: streets
+    layer: osm
   },
   services: [{
     label: 'Car (fastest)',
