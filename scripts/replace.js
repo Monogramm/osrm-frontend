@@ -19,6 +19,7 @@ for (const filepath of [leafletOptions, debug]) {
   const CENTER = process.env.OSRM_CENTER || '38.8995, -77.0269'
   const BACKEND = process.env.OSRM_BACKEND || 'https://router.project-osrm.org'
   const LANGUAGE = process.env.OSRM_LANGUAGE || 'en'
+  const MAPBOX_TOKEN = process.env.OSRM_LANGUAGE || 'pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg'
   const NOMINATIM = process.env.NOMINATIM_URL || 'https://nominatim.openstreetmap.org'
 
   // Edit Leaflet Options
@@ -27,6 +28,7 @@ for (const filepath of [leafletOptions, debug]) {
   if (LABEL) options = options.replace('Car (fastest)', LABEL)
   if (ZOOM) options = options.replace('zoom: 13', `zoom: ${ZOOM}`)
   if (LANGUAGE) options = options.replace(`language: 'en'`, `language: '${LANGUAGE}'`)
+  if (MAPBOX_TOKEN) options = options.replace(`mapboxToken: '.*'`, `mapboxToken: '${MAPBOX_TOKEN}'`)
   if (CENTER) {
     const latLng = CENTER.split(/[, ]+/)
     const lat = latLng[0];
